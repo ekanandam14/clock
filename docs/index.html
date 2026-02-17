@@ -2,8 +2,10 @@
 <html>
 <head>
     <title>Our Forever Begins ❤️</title>
+
     <style>
         body {
+            margin: 0;
             background: linear-gradient(to right, #ff758c, #ff7eb3);
             font-family: Arial, sans-serif;
             text-align: center;
@@ -16,36 +18,51 @@
         }
 
         h1 {
-            font-size: 40px;
+            font-size: 42px;
+            margin-bottom: 20px;
         }
 
         #countdown {
-            font-size: 50px;
-            margin-top: 20px;
+            font-size: 55px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .message {
             margin-top: 30px;
             font-size: 24px;
+            max-width: 600px;
         }
     </style>
 </head>
+
 <body>
 
-    <h1>Counting Every Second Until I Marry You ❤️</h1>
+    <h1>Counting Every Second Until June 18 ❤️</h1>
 
     <div id="countdown"></div>
 
     <div class="message">
-        I promise to protect you, stand beside you, and love you forever.
+        On June 18, our forever begins.  
+        I promise to protect you, stand beside you, and love you for a lifetime.
     </div>
 
 <script>
-    const targetDate = new Date("Feb 14, 2026 00:00:00").getTime();
+
+    // SET YOUR MARRIAGE DATE HERE (India Timezone)
+    const targetDate = new Date("2026-06-18T00:00:00+05:30").getTime();
 
     const timer = setInterval(function() {
+
         const now = new Date().getTime();
         const distance = targetDate - now;
+
+        if (distance <= 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML =
+                "Today We Become One ❤️";
+            return;
+        }
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -53,14 +70,13 @@
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         document.getElementById("countdown").innerHTML =
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            days + " Days " +
+            hours + " Hours " +
+            minutes + " Minutes " +
+            seconds + " Seconds ";
 
-        if (distance < 0) {
-            clearInterval(timer);
-            document.getElementById("countdown").innerHTML =
-                "Happy Valentine's Day My Love ❤️";
-        }
     }, 1000);
+
 </script>
 
 </body>
